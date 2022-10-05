@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<header>
+
+</header>
+<body>
+    <h3>validacion de direcciones ip</h3>
+    <form action="">
+        <input id="ip" type="text" onkeyup="validarIP(event);">
+    </form>
+    <input id="msg1" disabled>
+    <!--
+    <input id="msg2">
+    <input id="msg3">
+    -->
+</body>
+<script>
+    function validarOctal(cadena){
+        let ip = document.getElementById("ip");
+        //retornar split vacio
+        if(cadena==""){
+            return;
+        }
+        console.log("octal: ",cadena, cadena.length);
+        //retornar si se violan los extremos
+        if(cadena < 0 || cadena > 255){
+            colaNotificaciones("cada octal no puede ser mayor a 255 o menor a 0"); 
+            ip.value = ip.value.substring(0,ip.value.length-1);
+            return false;
+        }
+        //marcar punto cuando finalice un octal o cuando sea el primer termino un cero
+        if(cadena.length==3 || cadena[0]=="0"){
+            ip.value = ip.value+".";
+            colaNotificaciones("punto marcado automaticamente")
+            return;
+        }
+        return false;
+    }
+    //contara con la validacion inicial sobre el grupo de caracteres permitidos.
+    function validarIP(evt){
+        //captura de informacion
+        let ip = document.getElementById("ip");
+        var code = (evt.which) ? evt.which: evt.keyCode;
+        if(ip.value.length < 7){
+            console.log("la ip es demasiado corta");
+            colaNotificaciones("la ip es demasiado corta");
+        }
+        if(ip.value.length > 15){
+            console.log("la ip es demasiado larga");
+            colaNotificaciones("la ip es demasiado larga");
+            borrarUltimoCaracter();
+            return;
+        }
+        //no iniciar con punto
+        if(ip.value[0]=="." || ip.value[0]=="0"){
+            colaNotificaciones("la direccion ip no puede iniciar con punto o 0");
+            borrarUltimoCaracter();
+        }
+        //puntos consecutivos
+        if(ip.value[ip.value.length-1]=="." && ip.value[ip.value.length-2]=="."){
+            colaNotificaciones("la direccion no permite numero consecutivos");
+            borrarUltimoCaracter();
+        }
+        //validacion de caracteres permitidos.
+        if(code<48 || code >57){
+            if(code!=190){
+                borrarUltimoCaracter();
+                return false;
+            }
+        }
+        //seccionamiento de caracteres
+        octales = ip.value.split(".");
+        validarOctal(octales[octales.length-1]);
+    }
+    function borrarUltimoCaracter(){
+        let ip = document.getElementById("ip");
+        ip.value = ip.value.substring(0,ip.value.length-1);
+    }
+    function colaNotificaciones(mensaje){
+        let m1 = document.getElementById("msg1"); 
+        let m2 = document.getElementById("msg2"); 
+        let m3 = document.getElementById("msg3");
+        m1.value=mensaje;
+    }
+</script>
+</html>
