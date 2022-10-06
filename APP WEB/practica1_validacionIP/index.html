@@ -7,13 +7,16 @@
     <form action="">
         <input id="ip" type="text" onkeyup="validarIP(event);">
     </form>
-    <input id="msg1" disabled>
-    <!--
-    <input id="msg2">
-    <input id="msg3">
-    -->
+    <input id="msg1" readonly disabled size="large"><br>
+    <input id="msg2" readonly disabled><br>
+    <input id="msg3" readonly disabled>
 </body>
 <script>
+    let glabalIP = document.getElementById("ip");
+    let tipo1;
+    let tipo2;
+    let tipo3;
+
     function validarOctal(cadena){
         let ip = document.getElementById("ip");
         //retornar split vacio
@@ -23,14 +26,14 @@
         console.log("octal: ",cadena, cadena.length);
         //retornar si se violan los extremos
         if(cadena < 0 || cadena > 255){
-            colaNotificaciones("cada octal no puede ser mayor a 255 o menor a 0"); 
+            colaNotificaciones("cada octal no puede ser mayor a 255 o menor a 0", "danger"); 
             ip.value = ip.value.substring(0,ip.value.length-1);
             return false;
         }
         //marcar punto cuando finalice un octal o cuando sea el primer termino un cero
         if(cadena.length==3 || cadena[0]=="0"){
             ip.value = ip.value+".";
-            colaNotificaciones("punto marcado automaticamente")
+            colaNotificaciones("punto marcado automaticamente", "info");
             return;
         }
         return false;
@@ -41,23 +44,21 @@
         let ip = document.getElementById("ip");
         var code = (evt.which) ? evt.which: evt.keyCode;
         if(ip.value.length < 7){
-            console.log("la ip es demasiado corta");
-            colaNotificaciones("la ip es demasiado corta");
+            colaNotificaciones("la ip es demasiado corta", "warning");
         }
         if(ip.value.length > 15){
-            console.log("la ip es demasiado larga");
-            colaNotificaciones("la ip es demasiado larga");
+            colaNotificaciones("la ip es demasiado larga", "danger");
             borrarUltimoCaracter();
             return;
         }
         //no iniciar con punto
         if(ip.value[0]=="." || ip.value[0]=="0"){
-            colaNotificaciones("la direccion ip no puede iniciar con punto o 0");
+            colaNotificaciones("la direccion ip no puede iniciar con punto o 0", "danger");
             borrarUltimoCaracter();
         }
         //puntos consecutivos
         if(ip.value[ip.value.length-1]=="." && ip.value[ip.value.length-2]=="."){
-            colaNotificaciones("la direccion no permite numero consecutivos");
+            colaNotificaciones("la direccion no permite puntos consecutivos", "warning");
             borrarUltimoCaracter();
         }
         //validacion de caracteres permitidos.
@@ -75,11 +76,45 @@
         let ip = document.getElementById("ip");
         ip.value = ip.value.substring(0,ip.value.length-1);
     }
-    function colaNotificaciones(mensaje){
+    /*
+     *cola de mensaje para notificaciones
+     @param mensaje : notificacion recibida.
+     @param tipo : warning, danger, info. 
+     */
+    function colaNotificaciones(mensaje, tipo){
+        let warning = "background-color: #F4D03F; color: black";
+        let danger = "background-color: #FF3C33; color: white";
+        let info = "background-color: #d9edf7; color: black";
         let m1 = document.getElementById("msg1"); 
         let m2 = document.getElementById("msg2"); 
         let m3 = document.getElementById("msg3");
+        m3.value=m2.value;
+        m2.value=m1.value;
         m1.value=mensaje;
+        tipo3=tipo2;
+        tipo2=tipo1;
+        tipo1=tipo;
+        if(tipo1=="danger"){
+            m1.style=danger;
+        }else if(tipo1=="warning"){
+            m1.style=warning;
+        }else if(tipo1=="info"){
+            m1.style=info;
+        }
+        if(tipo2=="danger"){
+            m2.style=danger;
+        }else if(tipo2=="warning"){
+            m2.style=warning;
+        }else if(tipo2=="info"){
+            m2.style=info;
+        }
+        if(tipo3=="danger"){
+            m3.style=danger;
+        }else if(tipo3=="warning"){
+            m3.style=warning;
+        }else if(tipo3=="info"){
+            m3.style=info;
+        }
     }
 </script>
 </html>
