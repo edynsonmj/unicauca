@@ -1,5 +1,21 @@
-crear pequeña app para gestionar pendientes desde mi github
-APP WEB.
-classroom, dojo toolkit, seguir guia.
-pasar la url del repositorio en la entrega de classroom
+- crear pequeña app para gestionar pendientes desde mi github APP WEB.
+
+- classroom, dojo toolkit, seguir guia. pasar la url del repositorio en la entrega de classroom
+
+- empresarial tarea: equipo 1 y 2, que es la planeacion dentro del proceso administrativo, que lo compone.
+
 *****************************
+evento: 
+{
+	titulo:
+	descripcion:
+	estado: sin iniciar, en proceso, revision, terminado.
+	asociada a: [elemento de entorno]
+	esSpring: true/false
+	esDia: true/false
+	prioridad: 1 -10.
+	fecha inicio: automatica desde el momento de en proceso
+	fecha fin: automatica cuando termine.
+}
+
+entorno: [requisitos, trabajo, etc]

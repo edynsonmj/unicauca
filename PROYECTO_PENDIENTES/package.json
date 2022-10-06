@@ -1,0 +1,11 @@
+{
+  "name": "proy_pendientes",
+  "version": "1.0.0",
+  "description": "proyecto para manejo de pendientes y eventos en formato scrum",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "edynson muñoz jimenez",
+  "license": "ISC"
+}

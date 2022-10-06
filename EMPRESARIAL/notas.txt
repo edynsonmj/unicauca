@@ -1,0 +1,39 @@
+6/10/2022 *********
+    producto: bien (tangible-> produccion) o servicio (intangible)
+                satisfacen la necesidad de un cliente.
+
+    microentorno de una oorganizacion, esta compuesto por los interesados (stakeholders) de la organizacion.
+        segmento de mercado, clientes.
+        proveedores
+        entidades gubernamentales o entes de control que afecten directamente a la organizacion.
+        sistema financiero.
+        competencia.
+        distribuidores
+
+    macroentorno: fuerzas o factores que afectan a la empresa, pero se debe a la geografia (en donde esta
+            ubicada la organizacion).
+        factores politicos
+        factores economicos
+        factores tecnologicos
+        factores sociales y culturales: violencia, seguridad etc, nacionalidad de la empresa, forma de operar.
+        factores ambientales
+    
+    funciones empresariales
+        funcion tecnica: la forma como se produce el producto o como se genera el servicio.
+        funciones comerciales: 
+        funciones financieras: financiacion y manejo, distribucion y gestion, dinero o recursos bien aprovechados.
+        funciones de seguridad: generar bienestar para los empleados de la organizacion, del talento humano,
+            potencializacion de los talentos de los empleados, responsabilidad de la organizacion para con 
+            el bienestar integral del talento humano.
+            normas de seguridad en el trabajo.
+        funciones contables: registros de la informacion de la organizacion
+        funciones administrativas: direccion, gestion de todas las funciones. proceso que se sigue en una
+            organizacion que es el proceso administrativo.
+
+        el proceso administrativo: 4 etapas.
+            - planeacion: rumbo de la organizacion o area, ¿ que se va a hacer? -> objetivo
+            - organizacion: ¿como hacerlo? mmmm -> talento humano (la estructura sigue a la estrategia)
+            - direccion: lograr que se haga. toma de desiciones, motivacion, trabajo en equipo.
+            - control: como se esta haciendo?
+
+*******************************************

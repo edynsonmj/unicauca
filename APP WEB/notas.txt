@@ -1,2 +1,3 @@
+6/10/2022 **********
 npm init: inicia un proyecto con nodeJS.
 node <nombre>: ejecuta un archivo.
