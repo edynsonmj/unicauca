@@ -1,0 +1,5 @@
+crear pequeña app para gestionar pendientes desde mi github
+APP WEB.
+classroom, dojo toolkit, seguir guia.
+pasar la url del repositorio en la entrega de classroom
+*****************************
